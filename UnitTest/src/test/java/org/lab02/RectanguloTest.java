@@ -47,19 +47,94 @@ public class RectanguloTest {
         assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
     }
 
-//    @Test
-//    void testBaseNegativa() {
-//        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-//            Rectangulo.calcularArea(-1, 5);
-//        });
-//        assertEquals("Base y altura deben ser mayores que cero.", exception.getMessage());
-//    }
-//
-//    @Test
-//    void testAlturaYBaseNegativa() {
-//        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-//            Rectangulo.calcularArea(-3, -6);
-//        });
-//        assertEquals("Base y altura deben ser mayores que cero.", exception.getMessage());
-//    }
+    @DisplayName("Base con valor entero negativo y altura decimal positivo")
+    @Test
+    void testBaseNegativa1() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(-10, 21.8);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Base con valor entero negativo y altura entero positivo")
+    @Test
+    void testBaseNegativa2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(-14, 58);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Base con valor decimal negativo y altura decimal positivo")
+    @Test
+    void testBaseNegativa3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(-67.9, 50.8);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Base con valor decimal negativo y altura entero positivo")
+    @Test
+    void testBaseNegativa4() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(-43.1, 90);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Altura con valor decimal negativo y base entero positivo")
+    @Test
+    void testAlturaNegativa1() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(31, -6.89);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Altura con valor decimal negativo y base decimal positivo")
+    @Test
+    void testAlturaNegativa2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(87.1, -69.89);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Altura con valor entero negativo y base entero positivo")
+    @Test
+    void testAlturaNegativa3() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(113, -71);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Altura con valor entero negativo y base decimal positivo")
+    @Test
+    void testAlturaNegativa4() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(93.9, -101);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Altura y base enteros negativos")
+    @Test
+    void testBaseAlturaNegativa1() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(-77, -89);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Altura y base decimales negativos")
+    @Test
+    void testBaseAlturaNegativa2() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Rectangulo.calcularArea(-31.31, -89.73);
+        });
+        assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
 }

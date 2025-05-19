@@ -1,4 +1,4 @@
-package org.lab02;
+package org.rectangulo;
 
 public class Rectangulo {
 

@@ -1,4 +1,4 @@
-package org.lab02;
+package org.rectangulo;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -135,6 +135,24 @@ public class RectanguloTest {
             Rectangulo.calcularArea(-31.31, -89.73);
         });
         assertThat(exception.getMessage(), is("Base y altura deben ser mayores que cero."));
+    }
+
+    @DisplayName("Entradas numericas válidas (enteros y decimales)")
+    @Test
+    void testEntradaNumericaValida() {
+        assertThat(Utilidades.esNumero("12.45"), is(true));
+        assertThat(Utilidades.esNumero("56"), is(true));
+    }
+
+    @DisplayName("Entradas no numericas válidas como:" +
+            "letras, espacios, errores de tipeo y simbolos")
+    @Test
+    void testEntradaNoNumerica() {
+        assertThat(Utilidades.esNumero("abc"), is(false));
+        assertThat(Utilidades.esNumero("5,5"), is(false));
+        assertThat(Utilidades.esNumero("1001aLÑ3"), is(false));
+        assertThat(Utilidades.esNumero(" "), is(false));
+        assertThat(Utilidades.esNumero("@!#$"), is(false));
     }
 
 }
